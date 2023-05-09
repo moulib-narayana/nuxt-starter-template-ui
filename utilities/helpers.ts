@@ -3,20 +3,6 @@ import { Router } from "vue-router";
 
 export const inDevelopmentMode = () => process.env.NODE_ENV === "development";
 
-// ---------------- API Related Helper functions ----------------
-
-export const getTotalCountHeader = (headers: Headers | null): number | null => {
-   if (!headers) return null;
-
-   const headerValue = headers.get("x-total-count");
-   if (!headerValue) return null;
-
-   return parseInt(headerValue);
-};
-
-// ---------------- End of API Related Helper functions ----------------
-
-
 // ---------------- Numbers Related Helper functions ----------------
 
 export const numberIsBetween = (

@@ -1,8 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 const serverHost = "http://localhost:5000";
-const clientHost = "http://localhost:3000";
-const loginPagePath = "/login";
 
 export default defineNuxtConfig({
    typescript: {
@@ -22,12 +20,6 @@ export default defineNuxtConfig({
       },
    },
 
-   http: {
-      baseURL: serverHost + "/api",
-      browserBaseURL: serverHost + "/api",
-      https: false,
-   },
-
    app: {
       head: {
          title: "Nuxt Web App",
@@ -36,16 +28,20 @@ export default defineNuxtConfig({
       },
    },
 
-   css: ["~/assets/scss/app.scss"],
+   //TODO: Remove element plus part if you are not using it.
+   css: ["~/assets/scss/element/index.scss", "~/assets/scss/app.scss"],
+
+   modules: ["@vueuse/nuxt", "@pinia/nuxt"],
 
    vite: {
       css: {
          preprocessorOptions: {
             scss: {
+               //TODO: Remove element plus part if you are not using it.
                additionalData:
-                  '@use "~/assets/scss/_var.scss" as *;',
+                  '@use "~/assets/scss/element/_var.scss" as element; @use "~/assets/scss/_var.scss" as *;',
             },
          },
       },
-   }
+   },
 });
