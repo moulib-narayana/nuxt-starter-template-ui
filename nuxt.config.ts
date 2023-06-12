@@ -31,7 +31,7 @@ export default defineNuxtConfig({
    //TODO: Remove element plus part if you are not using it.
    css: ["~/assets/scss/element/index.scss", "~/assets/scss/app.scss"],
 
-   modules: ["@vueuse/nuxt", "@pinia/nuxt"],
+   modules: [],
 
    vite: {
       css: {
